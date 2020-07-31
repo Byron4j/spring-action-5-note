@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <img th:src="@{img/TacoCloud.png}">
+    <form method="post" th:object="${design}">
+        <div>
+            <h3>wrap:</h3>
+            <div th:each="ele:${wrap}">
+                <input name="ingredients" type="checkbox" th:value="${ele.id}">
+                <span th:text="${ele.name}">INGREDIENT</span>
+            </div>
+
+            <h3>protein:</h3>
+            <div th:each="ele : ${protein}">
+                <input name="ingredients" type="checkbox" th:value="${ele.id}">
+                <span th:text="${ele.name}">INGREDIENT</span>
+            </div>
+
+            <h3>sauce:</h3>
+            <div th:each="ele : ${sauce}">
+                <input name="ingredients" type="checkbox" th:value="${ele.id}">
+                <span th:text="${ele.name}">INGREDIENT</span>
+            </div>
+
+            <input name="name"><br>
+
+            <button>Submit your taco</button>
+        </div>
+    </form>
+</body>
+</html>

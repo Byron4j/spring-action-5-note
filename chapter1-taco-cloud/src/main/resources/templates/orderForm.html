@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" th:action="@{/orders}" th:object="${order}">
+        Name:<input type="text" th:field="*{name}"><br>
+        Street:<input type="text" th:field="*{street}"><br>
+        City:<input type="text" th:field="*{city}"><br>
+        State:<input type="text" th:field="*{state}"><br>
+        Zip:<input type="text" th:field="*{zip}"><br>
+
+        CcNumber:<input type="text" th:field="*{ccNumber}">
+                <span th:if="${#fields.hasErrors('ccNumber')}"
+                        th:errors="*{ccNumber}">CC Num Error
+                </span>
+        <br>
+
+
+        CcExpiration:<input type="text" th:field="*{ccExpiration}"><br>
+        CcCVV:<input type="text" th:field="*{ccCVV}"><br>
+        <input type="submit" value="提交订单">
+    </form>
+</body>
+</html>
